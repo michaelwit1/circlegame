@@ -11,11 +11,12 @@ username: michaelwit@sfdemo.com
 password: circlegame9
 
 The code components are:
-src/aura/circleGameApp.app       (Lightning App)
 
-src/aura/circleGame.cmp          (Lightning component)
+src/aura/circlGameApp/circleGameApp.app       (Lightning App)
 
-src/aura/circleGameController.js (JavaScript controller for this component)
+src/aura/circleGame/circleGame.cmp          (Lightning component)
+
+src/aura/circleGame/circleGameController.js (JavaScript controller for this component)
 
 src/classes/CircleGame.cls       (Apex Class to run the game and return the results)
 
