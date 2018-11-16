@@ -1,0 +1,50 @@
+<!--  
+This Lightning component presents an input form to capture the values of n (number of players) and k 
+(number of players to go round, then remove the last one, before starting again)
+It also displays the outcome of the game: the sequence of player exits, and the winner
+-->
+<aura:component controller="CircleGame">
+    <aura:attribute name="nValue" type="Integer"/>
+    <aura:attribute name="kValue" type="Integer"/>
+    <aura:attribute name="exitSequence" type="String"/>
+    <aura:attribute name="winner" type="String"/>
+
+    <div aria-labelledby="newcirclegameform">
+        <!-- BOXED AREA -->
+        <fieldset class="slds-box slds-theme_default slds-container_small">
+            <legend id="newcirclegameform" class="slds-text-heading--small 
+                                               slds-p-vertical--medium">
+                Try the Circle Game!
+            </legend>
+            
+			<form class="slds-form_stacked">          
+                <lightning:input type="number" aura:id="circlegameform" label="Number of players"
+                                 name="nValue"
+                                 min="1"
+                                 formatter="number"
+                                 step="1"
+                                 value="{!v.nValue}"
+                                 messageWhenRangeUnderflow="Enter a whole number greater than 0"/>
+                <lightning:input type="number" aura:id="circlegameform" label="Position of player to remove"
+                                 name="kValue"
+                                 min="1"
+                                 formatter="number"
+                                 step="1"
+                                 value="{!v.kValue}"
+                                 messageWhenRangeUnderflow="Enter a whole number greater than 0"/>
+                <lightning:button label="Run Game" 
+                                  class="slds-m-top--medium"
+                                  variant="brand"
+                                  onclick="{!c.clickRun}"/>
+				<br/><br/>
+				<h1 class="slds-text-heading_label">Exit Sequence</h1>
+				<lightning:formattedText value="{!v.exitSequence}" />
+				<br/><br/>
+				<h1 class="slds-text-heading_label">Winner</h1>
+				<lightning:formattedText value="{!v.winner}" />
+            </form>
+            
+        </fieldset>
+        <!-- / BOXED AREA -->
+    </div>
+</aura:component>
